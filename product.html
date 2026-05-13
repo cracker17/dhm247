@@ -799,6 +799,169 @@
   .ph-8{background-image:url("https://images.unsplash.com/photo-1494390248081-4e521a5940db?w=1200&q=80")}
   .ph-ryan{background-image:url("https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=1200&q=80")}
   .ph-can{background-image:url("https://images.unsplash.com/photo-1556228720-195a672e8a03?w=1200&q=80")}
+
+  /* ====================================================
+     MOBILE (≤ 640px) — PDP comprehensive pass
+     ==================================================== */
+  @media (max-width:640px){
+    :root{ --pad-x:18px; }
+
+    section{ padding:48px 0 }
+
+    h1{ font-size:24px; line-height:1.18 }
+    h2{ font-size:clamp(24px, 6.4vw, 30px) }
+    h3{ font-size:19px }
+
+    /* Header */
+    .nav{ padding:10px 0; gap:8px }
+    .brand img{ height:28px }
+    .icon-btn{ width:40px; height:40px }
+    .announce{ font-size:11.5px; padding:8px 14px; line-height:1.4 }
+
+    /* Crumb tighter */
+    .crumb{ padding:12px 0; font-size:11.5px }
+    .crumb .sep{ margin:0 6px }
+
+    /* GALLERY — main images first, thumbs as horizontal scroll below */
+    .gallery{
+      grid-template-columns:1fr;
+      gap:12px;
+    }
+    .main-imgs{ order:1; gap:10px }
+    .main-imgs > .main-img:nth-child(n+4){ display:none }  /* show 3 main images max */
+    .thumbs{
+      order:2;
+      flex-direction:row;
+      overflow-x:auto;
+      padding-bottom:4px;
+      gap:8px;
+      scrollbar-width:none;
+      -ms-overflow-style:none;
+    }
+    .thumbs::-webkit-scrollbar{ display:none }
+    .thumb{
+      width:64px; height:64px;
+      flex-shrink:0;
+    }
+    .main-img .img-tag{
+      top:12px; left:12px;
+      padding:6px 10px;
+      font-size:10px;
+      letter-spacing:.12em;
+    }
+
+    /* BUY BOX — not sticky on mobile, breathes */
+    .buybox{
+      position:static;
+      top:auto;
+    }
+    .bb-title{ font-size:26px; line-height:1.14 }
+    .bb-price{ margin-bottom:18px; padding-bottom:18px }
+    .bb-price .now{ font-size:30px }
+    .bb-price .was{ font-size:16px }
+    .bb-bullets li{ font-size:13.5px }
+    .qty-row{
+      grid-template-columns:104px 1fr;
+      gap:8px;
+    }
+    .qty{ height:48px }
+    .bb-cta-stack .btn{ height:50px }
+    .trust-strip{ padding:14px 16px }
+    .trust-strip > div{ font-size:12.5px; line-height:1.4 }
+    .secondary-row{ gap:14px }
+    .secondary-row button{ font-size:12px }
+    details.bb-acc summary{ padding:16px 0; font-size:14px }
+    .pay-row{
+      flex-wrap:wrap; gap:6px;
+      padding-top:14px; margin-top:14px;
+    }
+    .pay-row .badge{ font-size:10px; padding:3px 7px }
+
+    /* Section heads */
+    .section-head{ margin-bottom:32px }
+    .section-head p{ font-size:14.5px }
+
+    /* PROUDLY CANADIAN */
+    .canadian-grid{ gap:28px }
+    .canadian-copy p{ font-size:14.5px }
+
+    /* INGREDIENT BREAKDOWN */
+    .ing-bd-card{ padding:26px 22px }
+    .ing-bd-card h3{ font-size:24px }
+    .ing-bd-card p{ font-size:14px }
+    .ing-bd-card .mechanism{ font-size:12px }
+
+    /* RYAN */
+    .ryan-grid{ gap:36px }
+    .ryan-mech{
+      grid-template-columns:1fr;
+      gap:4px;
+      padding:12px 0;
+      font-size:13.5px;
+    }
+    .ryan-mech .tag{ font-size:10px; min-width:0 }
+    .ryan-quote{ font-size:16px; padding:6px 0 6px 16px; margin:20px 0 }
+    .ryan-img{ aspect-ratio:4/3 }
+
+    /* FAQ */
+    details.faq-item summary{ padding:16px 18px; font-size:14.5px; gap:14px }
+    details.faq-item .ans{ padding:0 18px 18px; font-size:14px }
+
+    /* REVIEWS */
+    .reviews-summary{
+      flex-direction:column;
+      gap:18px;
+      align-items:stretch;
+    }
+    .review-big{
+      padding-right:0;
+      border-right:0;
+      border-bottom:1px solid var(--warm-line);
+      padding-bottom:18px;
+    }
+    .review-big .score{ font-size:42px }
+    .review-bars{ max-width:none }
+    .review-card{ padding:20px }
+    .review-card h4{ font-size:16px }
+
+    /* WHY CHOOSE US */
+    .why-grid{ gap:28px }
+    .why-card h3{ font-size:20px }
+
+    /* FOOTER */
+    .footer-grid{
+      grid-template-columns:1fr;
+      gap:28px;
+      padding-bottom:28px;
+    }
+    .footer-brand{ grid-column:auto }
+    .footer-bottom{
+      flex-direction:column;
+      align-items:flex-start;
+    }
+    .footer-bottom p:last-child{ text-align:left }
+
+    /* STICKY ATC — respect safe area, tighten */
+    .sticky-atc{
+      padding:10px 14px;
+      padding-bottom:calc(10px + env(safe-area-inset-bottom));
+      gap:10px;
+    }
+    .sticky-atc .satc-name{ font-size:12.5px }
+    .sticky-atc .satc-price .now{ font-size:14px }
+    .sticky-atc .btn{ padding:11px 16px; font-size:13px }
+
+    /* Extra body padding to clear sticky ATC */
+    .site-footer{ padding-bottom:96px }
+  }
+
+  /* Extra-small phones */
+  @media (max-width:380px){
+    .bb-title{ font-size:22px }
+    .ing-bd-card h3, .canadian-copy h2{ font-size:22px }
+    .qty-row{ grid-template-columns:1fr; }
+    .qty{ justify-self:start; width:140px }
+  }
 </style>
 </head>
 <body>
